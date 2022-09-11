@@ -3,9 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor.Start", "Blazor.Start", "{FA5BF73C-64C0-4A66-9CE0-CA9A17724899}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "20220911.SampleClient", "20220911.SampleClient", "{0DA0A650-8AA3-4CC9-8D48-9532252B3148}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeremyBlazorApp", "JeremyBlazorApp\JeremyBlazorApp.csproj", "{CADC3832-1380-4CF1-9017-0F913518028D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CADC3832-1380-4CF1-9017-0F913518028D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CADC3832-1380-4CF1-9017-0F913518028D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CADC3832-1380-4CF1-9017-0F913518028D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CADC3832-1380-4CF1-9017-0F913518028D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0DA0A650-8AA3-4CC9-8D48-9532252B3148} = {FA5BF73C-64C0-4A66-9CE0-CA9A17724899}
+		{CADC3832-1380-4CF1-9017-0F913518028D} = {0DA0A650-8AA3-4CC9-8D48-9532252B3148}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90F7860D-69DC-4824-B95D-9BEAE683652A}

@@ -7,15 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor.Start", "Blazor.Star
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "20220911.SampleClient", "20220911.SampleClient", "{0DA0A650-8AA3-4CC9-8D48-9532252B3148}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeremyBlazorApp", "JeremyBlazorApp\JeremyBlazorApp.csproj", "{CADC3832-1380-4CF1-9017-0F913518028D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeremyBlazorApp", "JeremyBlazorApp\JeremyBlazorApp.csproj", "{CADC3832-1380-4CF1-9017-0F913518028D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "N-Covid", "N-Covid", "{0673BA47-7B70-4467-B902-2AC9A42A6051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCovid.Client", "NCovid.Client\NCovid.Client.csproj", "{25643FCF-9301-429B-A4BF-0B376583AB90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCovid.Client", "NCovid.Client\NCovid.Client.csproj", "{25643FCF-9301-429B-A4BF-0B376583AB90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCovid.Server", "NCovid.Server\NCovid.Server.csproj", "{C25FCAB0-71C0-45FE-A5FC-176787A538FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCovid.Server", "NCovid.Server\NCovid.Server.csproj", "{C25FCAB0-71C0-45FE-A5FC-176787A538FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCovid.Shared", "NCovid.Shared\NCovid.Shared.csproj", "{83C1C4E9-3EC9-4B5F-8059-6A89E30738B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCovid.Shared", "NCovid.Shared\NCovid.Shared.csproj", "{83C1C4E9-3EC9-4B5F-8059-6A89E30738B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

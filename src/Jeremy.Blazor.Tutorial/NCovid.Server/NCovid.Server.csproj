@@ -22,4 +22,10 @@
     <ProjectReference Include="..\NCovid.Shared\NCovid.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="NCovidDb.db3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

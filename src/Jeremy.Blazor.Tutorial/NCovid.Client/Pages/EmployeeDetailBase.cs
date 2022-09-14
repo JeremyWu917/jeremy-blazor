@@ -91,5 +91,10 @@ namespace NCovid.Client.Pages
 
             await base.OnInitializedAsync();
         }
+
+        public void Button_Click()
+        {
+            Employee.Name = "Jessie Li";
+        }
     }
 }

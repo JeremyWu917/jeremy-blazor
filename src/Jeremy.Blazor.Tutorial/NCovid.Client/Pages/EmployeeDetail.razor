@@ -1,13 +1,42 @@
 ﻿@page "/employeedetail/{EmployeeId}"
 @inherits EmployeeDetailBase
 
-<h3>EmployeeDetail for @Employee.Name</h3>
+<h1>EmployeeDetail for @Employee.Name</h1>
 
+<h1>单向绑定</h1>
 <div>
-    <div>@Employee.Id</div>
-    <div>@Employee.DepartmentId</div>
-    <div>@Employee.Name</div>
-    <div>@Employee.BirthDate</div>
-    <div>@Employee.Gender</div>
+    <h2>@Employee.Id</h2>
+    <h2>@Employee.DepartmentId</h2>
+    <h2>@Employee.Name</h2>
+    <h2>@Employee.BirthDate</h2>
+    <h2>@Employee.Gender</h2>
 </div>
+<hr />
 
+<h1>双向绑定</h1>
+<div>
+    <h2>Emploee Name:</h2>
+    <input @bind="@Employee.Name" />
+    <h2>Emploee BirthDate:</h2>
+    <input @bind="@Employee.BirthDate" />
+    <h2>Emploee Gender:</h2>
+    <input @bind="@Employee.Gender" />
+</div>
+<hr />
+
+<h2>不同触发 Event</h2>
+<div>
+    <h2>Emploee Name:</h2>
+    <input @bind="@Employee.Name" @bind:event="oninput" />
+    <h2>Emploee BirthDate:</h2>
+    <input @bind="@Employee.BirthDate" @bind:event="oninput" />
+    <h2>Emploee Gender:</h2>
+    <input @bind="@Employee.Gender" @bind:event="oninput" />
+</div>
+<hr />
+
+<h2>按钮事件触发</h2>
+<div>
+    <button @onclick="Button_Click">Click</button>
+</div>
+<hr />

@@ -15,7 +15,6 @@ namespace NCovid.Client.Pages
         public IEnumerable<EmployeeDto> Employees { get; set; } = new List<EmployeeDto>();
 
         [Inject]
-        //public HttpClient HttpClient { get; set; }
         public IEmployeeService EmployeeService { get; set; }
 
         protected override async Task OnInitializedAsync()
@@ -89,7 +88,6 @@ namespace NCovid.Client.Pages
             #endregion
 
             // From API
-            //Employee = await HttpClient.GetFromJsonAsync<EmployeeDto>($"api/department/1/employee/{EmployeeId}");
             Employee = await EmployeeService.GetOneForDepartmentAsync(1, int.Parse(EmployeeId));
 
             await base.OnInitializedAsync();

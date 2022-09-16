@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using NCovid.Client.Services;
 using NCovid.Shared.Dtos;
 using System.Net.Http.Json;
 
@@ -7,14 +8,16 @@ namespace NCovid.Client.Pages
     public class EmployeeOverviewBase : ComponentBase
     {
         [Inject]
-        public HttpClient HttpClient { get; set; }
+        //public HttpClient HttpClient { get; set; }
+        public IEmployeeService EmployeeService { get; set; }
 
         public IEnumerable<EmployeeDto> Employees { get; set; } = new List<EmployeeDto>();
 
         protected override async Task OnInitializedAsync()
         {
             // From API
-            Employees = await HttpClient.GetFromJsonAsync<IList<EmployeeDto>>("api/department/1/employee");
+            // Employees = await HttpClient.GetFromJsonAsync<IList<EmployeeDto>>("api/department/1/employee");
+            Employees = await EmployeeService.GetForDepartmentAsync(1);
 
             #region Mock datas
             //Employees = new List<EmployeeDto> 

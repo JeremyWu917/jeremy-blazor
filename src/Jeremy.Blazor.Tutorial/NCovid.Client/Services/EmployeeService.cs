@@ -1,4 +1,5 @@
 ﻿using NCovid.Shared.Dtos;
+using System.Text;
 using System.Text.Json;
 
 namespace NCovid.Client.Services
@@ -12,14 +13,20 @@ namespace NCovid.Client.Services
             _httpClient = httpClient;
         }
 
-        public Task<EmployeeDto> AddForDepartmentAsync(int departmentId, EmployeeAddOrUpdateDto employee)
+        public async Task<EmployeeDto> AddForDepartmentAsync(int departmentId, EmployeeAddOrUpdateDto employee)
         {
-            throw new NotImplementedException();
+            var employeeJson = new StringContent(JsonSerializer.Serialize(employee), Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync($"api/department/{departmentId}/employee", employeeJson);
+            if (response.IsSuccessStatusCode)
+            {
+                return await JsonSerializer.DeserializeAsync<EmployeeDto>(await response.Content.ReadAsStreamAsync());
+            }
+            return null;
         }
 
-        public Task DeleteFromDepartmentAsync(int departmentId, int id)
+        public async Task DeleteFromDepartmentAsync(int departmentId, int id)
         {
-            throw new NotImplementedException();
+            await _httpClient.DeleteAsync($"api/department/{departmentId}/employee/{id}");
         }
 
         public async Task<IEnumerable<EmployeeDto>> GetForDepartmentAsync(int departmentId)
@@ -34,15 +41,16 @@ namespace NCovid.Client.Services
         public async Task<EmployeeDto> GetOneForDepartmentAsync(int departmentId, int id)
         {
             return await JsonSerializer.DeserializeAsync<EmployeeDto>(
-                await _httpClient.GetStreamAsync($"api/department/1/employee/{id}"), new JsonSerializerOptions
+                await _httpClient.GetStreamAsync($"api/department/{departmentId}/employee/{id}"), new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 });
         }
 
-        public Task UpdateForDepartmentAsync(int departmentId, int id, EmployeeAddOrUpdateDto employee)
+        public async Task UpdateForDepartmentAsync(int departmentId, int id, EmployeeAddOrUpdateDto employee)
         {
-            throw new NotImplementedException();
+            var employeeJson = new StringContent(JsonSerializer.Serialize(employee), Encoding.UTF8, "application/json");
+            await _httpClient.PutAsync($"api/department/{departmentId}/employee/{id}", employeeJson);
         }
     }
 }

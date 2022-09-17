@@ -1,40 +1,75 @@
-﻿@page "/employeeedit"
-@page "/employeeedit/{EmployeeId}"
+﻿@page "/employeeedit/{DepartmentId}"
+@page "/employeeedit/{DepartmentId}/{EmployeeId}"
+
 @using NCovid.Shared.Dtos
 
 <h3>Employee Edit</h3>
 
-<EditForm Model="@Employee">
-    <div class="form-group row">
-        <label for="no" class="col-sm-2 col-form-label">编号</label>
-        <div class="col-sm-10">
-            <InputText class="form-control" id="no" @bind-Value="Employee.No" />
+@if (!Saved)
+{
+    <EditForm Model="@Employee" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+        <div class="form-group row">
+            <label for="no" class="col-sm-2 col-form-label">编号</label>
+            <div class="col-sm-10">
+                <InputText class="form-control" id="no" @bind-Value="@Employee.No" />
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="no" class="col-sm-2 col-form-label">姓名</label>
-        <div class="col-sm-10">
-            <InputText class="form-control" id="name" @bind-Value="Employee.Name" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="no" class="col-sm-2 col-form-label">出生日期</label>
-        <div class="col-sm-10">
-            <InputDate class="form-control" id="birthDate" @bind-Value="Employee.BirthDate" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="no" class="col-sm-2 col-form-label">性别</label>
-        <div class="col-sm-10">
-            <InputSelect class="form-control" id="gender" @bind-Value="Employee.Gender">
-                @foreach (var value in Enum.GetValues(typeof(Gender)))
-                {
-                    <option value="@value">@value</option>
-                }
-            </InputSelect>
-        </div>
-    </div>
 
+        <div class="form-group row">
+            <label for="no" class="col-sm-2 col-form-label">姓名</label>
+            <div class="col-sm-10">
+                <InputText class="form-control" id="name" @bind-Value="@Employee.Name" />
+            </div>
+        </div>
 
-</EditForm>
+        <div class="form-group row">
+            <label for="no" class="col-sm-2 col-form-label">出生日期</label>
+            <div class="col-sm-10">
+                <InputDate class="form-control" id="birthDate" @bind-Value="@Employee.BirthDate" />
+            </div>
+        </div>
 
+        <div class="form-group row">
+            <label for="no" class="col-sm-2 col-form-label">性别</label>
+            <div class="col-sm-10">
+                <InputSelect class="form-control" id="gender" @bind-Value="@Employee.Gender">
+                    @foreach (var value in Enum.GetValues(typeof(Gender)))
+                    {
+                        <option value="@value">@value</option>
+                    }
+                </InputSelect>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="no" class="col-sm-2 col-form-label">部门</label>
+            <div class="col-sm-10">
+                <InputSelect class="form-control" id="departmentId" @bind-Value="@Employee.DepartmentId">
+                    @foreach (var department in Departments)
+                    {
+                        <option value="@department.Id">@department.Name</option>
+                    }
+                </InputSelect>
+            </div>
+        </div>
+
+        <div class="form-group col offset-sm-2">
+            @if (!string.IsNullOrWhiteSpace(EmployeeId))
+            {
+                <button class="btn btn-danger" @onclick="@DeleteEmployee">Delete</button>
+            }
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+            <button class="btn btn-success" @onclick="@GoBack">Go Back</button>
+        </div>
+
+    </EditForm>
+
+}
+else
+{
+    <div class="@CssClass" role="alert">
+        @Message
+    </div>
+}

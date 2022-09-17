@@ -38,7 +38,7 @@ namespace NCovid.Server.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<EmployeeDto>> GetOneForDepartment(int departmentId, int id)
         {
-            var x = await _employeeRepository.GetOneAsync(id);
+            var x = await _employeeRepository.GetOneAsync(departmentId, id);
             if (x == null)
             {
                 return NotFound();

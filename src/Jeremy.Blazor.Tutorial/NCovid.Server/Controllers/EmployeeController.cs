@@ -111,10 +111,10 @@ namespace NCovid.Server.Controllers
             return NoContent();
         }
 
-        [HttpPut("{id}")]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> UpdateForDepartment(int departmentId, int id)
+        public async Task<ActionResult> UpdateForDepartment(int id)
         {
             await _employeeRepository.DeleteAsync(id);
             return NoContent();

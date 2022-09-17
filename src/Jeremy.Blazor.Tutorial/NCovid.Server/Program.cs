@@ -18,18 +18,18 @@ builder.Services.AddScoped<IDailyHealthRepository, DailyHealthRepository>();
 builder.Services.AddEndpointsApiExplorer();
 
 // ¿çÓò
-//builder.Services.AddCors(options =>
-//{
-//    options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader());
-//});
-
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("Open", _builder =>
-    {
-        _builder.SetIsOriginAllowed(_ => true).AllowAnyHeader().AllowAnyMethod().AllowCredentials();
-    });
+    options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
+
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("Open", _builder =>
+//    {
+//        _builder.SetIsOriginAllowed(_ => true).AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+//    });
+//});
 
 var app = builder.Build();
 

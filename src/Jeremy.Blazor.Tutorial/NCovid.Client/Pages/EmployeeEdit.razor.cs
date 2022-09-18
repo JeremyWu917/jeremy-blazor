@@ -86,7 +86,8 @@ namespace NCovid.Client.Pages
 
         private void HandleInvalidSubmit()
         {
-            NavigationManager.NavigateTo("/employeeoverview");
+            CssClass = "alert alert-danger";
+            Message = "表单验证失败";
         }
 
         private async void DeleteEmployee()
@@ -100,7 +101,7 @@ namespace NCovid.Client.Pages
 
         private async void GoBack()
         {
-
+            NavigationManager.NavigateTo("/employeeoverview");
         }
 
     }

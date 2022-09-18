@@ -1,8 +1,6 @@
-# jeremy-blozar
+# jeremy-blazor
 
-:rainbow: Tutorials of Blozar
-
-
+:rainbow: Tutorials of Blazor
 
 ## Database Migration Command
 

@@ -44,7 +44,7 @@
         <div class="form-group row">
             <label for="no" class="col-sm-2 col-form-label">部门</label>
             <div class="col-sm-10">
-                <InputSelect class="form-control" id="departmentId" @bind-Value="@Employee.DepartmentId">
+                <InputSelect class="form-control" id="departmentId" @bind-Value="@EmployeeDepartmentId">
                     @foreach (var department in Departments)
                     {
                         <option value="@department.Id">@department.Name</option>

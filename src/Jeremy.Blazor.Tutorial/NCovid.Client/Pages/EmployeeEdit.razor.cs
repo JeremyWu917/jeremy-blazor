@@ -23,7 +23,7 @@ namespace NCovid.Client.Pages
 
         public EmployeeAddOrUpdateDto Employee { get; set; } = new EmployeeAddOrUpdateDto();
         public List<DepartmentDto> Departments { get; set; } = new List<DepartmentDto>();
-
+        protected string EmployeeDepartmentId { get; set; } = string.Empty;
         public string Message { get; set; }
         public bool Saved { get; set; }
         public string CssClass { get; set; }
@@ -47,6 +47,7 @@ namespace NCovid.Client.Pages
 
             Departments = (await DepartmentService.GetAllAsync()).ToList();
 
+            EmployeeDepartmentId = DepartmentId;
             // await base.OnInitializedAsync();
         }
 
